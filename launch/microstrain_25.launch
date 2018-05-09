@@ -8,14 +8,14 @@
          type="microstrain_3dm_gx5_25_node"
          output="screen">
 
-      <param name="port" value="/dev/ttyACM1" type="str" />
+      <param name="port" value="/dev/ttyACM0" type="str" />
       <param name="baudrate" value="115200" type="int" />
       <param name="device_setup" value="true" type="bool" />
 
       <!-- General Settings -->
       <param name="readback_settings" value="true" type="bool" />
       <param name="save_settings" value="true" type="bool" />
-      <param name="tf_ned_to_enu" value="false" type="bool" />
+      <param name="tf_ned_to_enu" value="true" type="bool" />
 
       <!-- Additional data settings -->
       <param name="publish_rpy" value="true" type="bool" />
@@ -30,7 +30,7 @@
       <param name="imu_frame_id" value="imu_link" type="str" />
 
       <!-- Declination source 1=None, 2=magnetic, 3=manual -->
-      <param name="declination_source" value="1" type="int" />
+      <param name="declination_source" value="2" type="int" />
 
       <!--<param name="declination" value="0.23" type="double" />-->
       <param name="ekf_rate" value="100" type="int" />
