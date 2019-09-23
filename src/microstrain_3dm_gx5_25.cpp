@@ -622,9 +622,9 @@ void Microstrain::filter_packet_callback(void *user_ptr, u8 *packet, u16 packet_
 				}
 				else
 				{
-					ekf_imu_msg_.linear_acceleration.x = -curr_filter_accel_.x;
+					ekf_imu_msg_.linear_acceleration.x = curr_filter_accel_.x;
 					ekf_imu_msg_.linear_acceleration.y = curr_filter_accel_.y;
-					ekf_imu_msg_.linear_acceleration.z = -curr_filter_accel_.z;
+					ekf_imu_msg_.linear_acceleration.z = curr_filter_accel_.z;
 				}
 				ekf_rpy_msg_.header.seq = filter_valid_packet_count_;
 				ekf_rpy_msg_.header.stamp = ros::Time::now();
@@ -650,9 +650,9 @@ void Microstrain::filter_packet_callback(void *user_ptr, u8 *packet, u16 packet_
 				}
 				else
 				{
-					ekf_rpy_msg_.vector.x = -curr_filter_angles_.roll;
+					ekf_rpy_msg_.vector.x = curr_filter_angles_.roll;
 					ekf_rpy_msg_.vector.y = curr_filter_angles_.pitch;
-					ekf_rpy_msg_.vector.z = -curr_filter_angles_.yaw;
+					ekf_rpy_msg_.vector.z = curr_filter_angles_.yaw;
 				}
 			} break;
 
@@ -675,9 +675,9 @@ void Microstrain::filter_packet_callback(void *user_ptr, u8 *packet, u16 packet_
 				}
 				else
 				{
-					ekf_imu_msg_.orientation.x = -1.0*curr_filter_quaternion_.q[1];
+					ekf_imu_msg_.orientation.x = curr_filter_quaternion_.q[1];
 					ekf_imu_msg_.orientation.y = curr_filter_quaternion_.q[2];
-					ekf_imu_msg_.orientation.z = -1.0*curr_filter_quaternion_.q[3];
+					ekf_imu_msg_.orientation.z = curr_filter_quaternion_.q[3];
 					ekf_imu_msg_.orientation.w = curr_filter_quaternion_.q[0];
 				}
 
@@ -701,9 +701,9 @@ void Microstrain::filter_packet_callback(void *user_ptr, u8 *packet, u16 packet_
 				}
 				else
 				{
-					ekf_imu_msg_.angular_velocity.x = -curr_filter_angular_rate_.x;
+					ekf_imu_msg_.angular_velocity.x = curr_filter_angular_rate_.x;
 					ekf_imu_msg_.angular_velocity.y = curr_filter_angular_rate_.y;
-					ekf_imu_msg_.angular_velocity.z = -curr_filter_angular_rate_.z;
+					ekf_imu_msg_.angular_velocity.z = curr_filter_angular_rate_.z;
 				}
 
 			} break;
